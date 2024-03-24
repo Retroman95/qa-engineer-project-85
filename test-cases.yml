@@ -38,10 +38,10 @@
   test-data: |
     https://codebattle.hexlet.io/
   steps:
-    - Вводим логин Dima95
-    - Вводим почту Dmitrij.com
-    - Вводим пароль Dima95
-    - Вводим пароль повторно Dima95
+    - Вводим логин Andrey95
+    - Вводим почту tester_hexlet
+    - Вводим пароль Qwerty1
+    - Вводим пароль повторно Qwerty1
     - Нажимаем кнопку "Submit"
   expected-result: |
     Пользователь получает сообщение об ошибке
@@ -51,12 +51,12 @@
   requirement: |
     При вводе валидных данных пользователь входит в систему
   prerequisites:
-    Ранее зарегестрировали пользователя под логином Dmitriy95, открыта страница авторизации
+    Ранее зарегестрировали пользователя под логином Andrey95, открыта страница авторизации
   test-data: |
     https://codebattle.hexlet.io/
   steps:
-    - Вводим почту andrusindmitrij380@gmail.com
-    - Вводим пароль Dima95*
+    - Вводим почту tester_hexlet@mail.ru
+    - Вводим пароль Qwerty1
     - Нажимаем кнопку "Submit"
   expected-result: |
     Пользователь успешно входит в систему
@@ -68,7 +68,7 @@
   prerequisites:
     Открыта страница авторизации
   test-data: |
-    email = andrusindmitrij380@gmail.com пароль = dima95*(с ошибкой)
+    email = tester_hexlet@mail.ru пароль = Qwerty2 (с ошибкой)
   steps:
     - Вводим email
     - Вводим пароль 
@@ -83,7 +83,7 @@
   prerequisites:
     Открыта страница авторизации
   test-data: |
-    Email = Dima@gmail.com Пароль = blabla
+    Email = texter_hexlet@mail.ru@gmail.com Пароль = Qwerty2
   steps:
     - Вводим логин
     - Вводим пароль
@@ -96,15 +96,14 @@
   requirement: |
     Пользователь должен иметь возможность прикрепить к аккаунту Github
   prerequisites:
-    Выполнена авторизация пользователя Dmitriy95
+    Выполнена авторизация пользователя Retroman95
   test-data: |
     https://codebattle.hexlet.io/
   steps:
     - на главной странице нажимаем на иконку своего никнейма
-    - открывается выпадающий список
-    - нажимаем "Setting"
+    - нажимаем "Setting" в выпадающем списке
     - нажимаем "Link GitHub"
-    - в сплывающем окне вводим логин = Dmitriy Andrushin пароль = Dima96*
+    - в сплывающем окне вводим логин/пароль от аккаунта Github
     - нажимаем "Sign in"
   expected-result: |
     Получаем уведомление "Succsesfully updated authentication settings"
@@ -114,15 +113,35 @@
   requirement: |
     Пользователь должен иметь возможность прикрепить к аккаунту Discord
   prerequisites:
-    Выполнена авторизация пользователя Dmitriy95
+    Выполнена авторизация пользователя retroman95
   test-data: |
     https://codebattle.hexlet.io/
   steps:
     - на главной странице нажимаем на иконку своего никнейма
-    - открывается выпадающий список
-    - нажимаем "Setting"
+    - нажимаем "Setting" в выпадающем списке
     - нажимаем "Link Discord"
-    - в сплывающем окне вводим логин = Dima59986 пароль = DIMA96*
+    - в сплывающем окне вводим логин/пароль 
     - нажимаем "Sign in"
   expected-result: |
     Получаем уведомление "Succsesfully updated authentication settings"
+
+- summary: |
+    Неуспешное создание нескольких турниров с одинаковым названием.  
+  requirement: |
+    Все активные/предстоящие турниры должны иметь разное название 
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/
+    Пользователь авторизован
+  test-data: |
+    Name tournament 1 = test; Type = individual; Access_type = token; Level = elementary;
+    Default language = js; Match timeout = 177;
+    Name tournament 2 = test;
+  steps:
+    - Нажать на гиперссылку 'Tournaments info'
+    - Заполнить форму 'Create a new tournament' в соответствии с тестовыми данными
+    - Нажать 'Create'
+    - Перейти во влкадку tournaments https://codebattle.hexlet.io/tournaments
+    - Нажать на гиперссылку 'Tournaments info'
+    - Заполнить форму 'Create a new tournament' в соответствии с тестовыми данными
+  expected-result: |
+    Второй турнир не создан, отображается сообщение с информацией 'турнир с текущем названием уже активен'
