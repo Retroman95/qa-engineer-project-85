@@ -155,8 +155,6 @@
     Авторизоваться в приложении "CodeBattle"
     Создать турнир
   test-data: |
-    Email = "test1test1.88@mail.ru"
-    Password = "123456"
     "level" = "3"
     "game type" = "With a friend"
     "choose opponent" = "pop"
