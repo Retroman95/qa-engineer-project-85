@@ -189,3 +189,44 @@
     - Нажимаем кнопку "Join"
   expected-result: |
     Отображена ошибка "already_in_a_game", игра не была создана.  
+
+- summary: |
+    Неуспешное создание турнира c прошедшей датой. 
+  requirement: |
+    Сайт не должен дать возможность сгенерировать турнир с прошедшей датой и временем
+  prerequisites: |
+    Пользователь авторизован.
+    Открыт сайт на вкладке tournaments https://codebattle.hexlet.io/#tournaments
+  test-data: |
+    https://codebattle.hexlet.io/
+    Name = My Fancy Tournament; Type = individual; Access_type = token; Level = elementary;
+    Default language = js; Match timeout = 177;
+  steps:
+    - Нажать на гиперссылку 'Tournaments info'
+    - Заполнить форму 'Create a new tournament' в соответствии с тестовыми данными
+    - Указать прошедшую дату и время турнира
+    - Нажать 'Create'
+  expected-result: |
+    Турнир не сгенерирован / нет возможности указать прошедшую дату и время турнира при создании
+
+- summary: |
+    Неуспешное создание нескольких турниров с одинаковым названием.  
+  requirement: |
+    Все активные/предстоящие турниры должны иметь разное название 
+  prerequisites:
+    Открыта главная страница https://codebattle.hexlet.io/
+    Пользователь авторизован
+  test-data: |
+    Login = AvadaKedavra; Password = password
+    Name tournament 1 = Test Tournament 1; Type = individual; Access_type = token; Level = elementary;
+    Default language = js; Match timeout = 177;
+    Name tournament 2 = Test Tournament 1;
+  steps:
+    - Нажать на гиперссылку 'Tournaments info'
+    - Заполнить форму 'Create a new tournament' в соответствии с тестовыми данными
+    - Нажать 'Create'
+    - Перейти во влкадку tournaments https://codebattle.hexlet.io/tournaments
+    - Нажать на гиперссылку 'Tournaments info'
+    - Заполнить форму 'Create a new tournament' в соответствии с тестовыми данными
+  expected-result: |
+    Второй турнир не создан, отображается сообщение с информацией 'турнир с текущем названием уже активен'
