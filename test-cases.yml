@@ -157,6 +157,24 @@
     Получаем уведомление "Succsesfully updated authentication settings"
 
 - summary: |
+    Успешное создание турнира
+  requirement: |
+    Игрок имеет возможность создать турнир
+  prerequisites: |
+    Пользователь авторизован.
+    Открыт сайт на вкладке tournaments https://codebattle.hexlet.io/#tournaments
+  test-data: |
+    Name = Test_tournament; Type = individual; Access_type = public; Level = elementary;
+    Default language = python; Match timeout = 177;
+  steps:
+    - Нажать на гиперссылку 'Tournaments info'
+    - Заполнить форму 'Create a new tournament' в соответствии с тестовыми данными
+    - Указать дату и время турнира
+    - Нажать 'Create'
+  expected-result: |
+    Турнир появился в списке турниров  
+
+- summary: |
     Неуспешное создание нескольких турниров с одинаковым названием  
   requirement: |
     Все активные/предстоящие турниры должны иметь разное название 
