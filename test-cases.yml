@@ -352,7 +352,8 @@
   prerequisites: |
     Открыта главная страница https://codebattle.hexlet.io/
   test-data: |
-    empty
+    Level = * Time control = 3 min Game type = with a bot Task = rect_area
+    Task language = js;
   steps:
     - Создать игру
     - Нажать на меню опций с выбором языков программирвоания.
