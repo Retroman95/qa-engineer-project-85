@@ -127,6 +127,7 @@
   requirement: |
     Пользователь должен иметь возможность прикрепить к аккаунту Github
   prerequisites:
+    Имеется аккаунт в Github    
     Выполнена авторизация пользователя Retroman95
   test-data: |
     https://codebattle.hexlet.io/
@@ -144,6 +145,7 @@
   requirement: |
     Пользователь должен иметь возможность прикрепить к аккаунту Discord
   prerequisites:
+    Имеется аккаунт в Discord
     Выполнена авторизация пользователя retroman95
   test-data: |
     https://codebattle.hexlet.io/
