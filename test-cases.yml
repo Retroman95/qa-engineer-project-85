@@ -17,7 +17,7 @@
   requirement: |
     При введении валидных данных пользователь должен попасть на главную страницу 
   prerequisites: |
-    Открыта страница регистрации 
+    Открыта страница регистрации https://codebattle.hexlet.io/session/new?locale=en&next=%2F
   test-data: |
     Вводим новый логин и почту
   steps:
