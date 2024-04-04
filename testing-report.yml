@@ -72,6 +72,10 @@
   status: pass
 
 - summary: |
+    Проверка наличия шифрования HTTPS
+  status: pass
+
+- summary: |
     Проверка настройки параметров игры с ботом
   status: pass
 
